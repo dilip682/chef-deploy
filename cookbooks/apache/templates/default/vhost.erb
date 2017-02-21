@@ -1,0 +1,21 @@
+#vhost tempalte file
+
+NameVirtualHost *:80
+
+<VirtualHost *:<%= @port %>>
+  DocumentRoot "<%= @document_root %>"
+  ServerName <%= @domain %>
+  ServerAlias <%= @domain %>
+
+  <Directory />
+    Options FollowSymLinks
+    Require all granted 
+  </Directory>
+
+  <Directory "<%= @document_root %>">
+    Options Indexes FollowSymLinks
+    IndexOptions IgnoreCase FancyIndexing FoldersFirst NameWidth=* DescriptionWidth=* SuppressHTMLPreamble
+    AllowOverride None
+    Require all granted 
+  </Directory>
+</VirtualHost>
