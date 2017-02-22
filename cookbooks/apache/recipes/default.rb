@@ -38,7 +38,7 @@ end
 
 execute 'rm /etc/httpd/conf.d/welcome.conf' do
   only_if do
-    File.exists?('/etc/httpd/conf.d/welcome.conf')
+    File.exist?('/etc/httpd/conf.d/welcome.conf')
   end
   notifies :restart, 'service[httpd]'
 end
