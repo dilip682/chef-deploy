@@ -26,7 +26,16 @@ node['apache']['sites'].each do |sitename, data|
     notifies :restart, 'service[httpd]'
   end
 
+  template "/content/sites/#{sitename}/index.html" do 
+    source 'index.html.erb'
+    mode '0644'
+    variables(
+      :site_title => data['site_title'],
+      :coming_soon => 'coming soon !!'
+    )
+  end
 end
+
 
 service 'httpd' do
   action [:enable, :start]
