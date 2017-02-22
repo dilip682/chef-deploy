@@ -36,7 +36,26 @@ node['apache']['sites'].each do |sitename, data|
   end
 end
 
+execute 'rm /etc/httpd/conf.d/welcome.conf' do
+  only_if do
+    File.exists?('/etc/httpd/conf.d/welcome.conf')
+  end
+  notifies :restart, 'service[httpd]'
+end
+
+execute 'rm /etc/httpd/conf.d/README' do
+  only_if do
+    File.exists?('/etc/httpd/conf.d/README')
+  end
+  notifies :restart, 'service[httpd]'
+end
+
+execute 'chcon  --user system_u --type httpd_sys_content_t -Rv /content/' do
+end
 
 service 'httpd' do
   action [:enable, :start]
 end
+
+include_recipe 'php::default'
+
