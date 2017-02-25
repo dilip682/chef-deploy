@@ -37,7 +37,7 @@ node['apache']['sites'].each do |sitename, data|
     notifies :restart, 'service[httpd]'
   end
 
-  template "/content/sites/#{sitename}/index.html" do 
+  template "/content/sites/#{sitename}/index.html" do
     source 'index.html.erb'
     mode '0644'
     variables(
@@ -73,4 +73,3 @@ service 'httpd' do
 end
 
 #include_recipe 'php::default'
-
