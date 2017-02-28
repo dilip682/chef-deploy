@@ -4,7 +4,7 @@ maintainer_email 'you@example.com'
 license 'all_rights'
 description 'Installs/Configures apache'
 long_description 'Installs/Configures apache'
-version '0.1.0'
+version '0.1.5'
 depends 'php'
 
 # The `issues_url` points to the location where issues for this cookbook are

@@ -5,6 +5,8 @@ default['apache']['sites']['dilip-huddar3b'] = { 'site_title' => 'Huddar3b site 
 default['apache']['sites']['dilip-huddar4'] = { 'site_title' => 'Huddar4 site coming soon..!', 'port' => '80', 'domain' => 'dilip-huddar4.mylabserver.com' }
 default['apache']['sites']['dilip-huddar4b'] = { 'site_title' => 'Huddar4b site coming soon..!', 'port' => '80', 'domain' => 'dilip-huddar4b.mylabserver.com' }
 
+default['author']['name'] = 'Dilip'
+
 case node['platform']
 when 'centos'
   default['apache']['package'] = 'httpd'
